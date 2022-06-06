@@ -5,7 +5,7 @@ import csv
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=settings['prefix'], intents=intents)
-channelId = 749953407350997125
+channelId = 
 
 
 @bot.event
