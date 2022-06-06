@@ -27,12 +27,14 @@ async def write_to_csv(discord_id, solana_address):
             return True
         csvfile.close()
 
+
 @bot.event
 async def on_message(message):
     if len(message.content) == 44 and message.channel.id == channelId and message.author != bot.user:
-            if await write_to_csv(str(message.author.id), message.content):
-                await message.channel.send(f'Успешно добавлен!')
-            else:
-                await message.channel.send(f'Ты уже добавил свой кошелёк!')
+        if await write_to_csv(str(message.author.id), message.content):
+            await message.channel.send(f'Успешно добавлен!')
+        else:
+            await message.channel.send(f'Ты уже добавил свой кошелёк!')
+
 
 bot.run(settings['token'])
